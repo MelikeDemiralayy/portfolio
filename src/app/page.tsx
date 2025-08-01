@@ -632,7 +632,8 @@ export default function Home() {
                   e.currentTarget.style.borderColor = 'rgba(255,255,255,0.3)';
                 }}
               >
-                🐙 GitHub'ı Gör
+                🐙 GitHub&rsquo;ı Gör
+
               </Link>
             </div>
             
