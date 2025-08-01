@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 
 interface Project {
@@ -15,184 +17,158 @@ interface ProjectCardProps {
 
 export default function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <div style={{ 
-      position: 'relative', 
-      overflow: 'hidden',
-      background: 'rgba(255,255,255,0.1)',
+    <div style={{
+      background: 'rgba(255,255,255,0.25)',
       backdropFilter: 'blur(20px)',
       borderRadius: '25px',
-      border: '1px solid rgba(255,255,255,0.2)',
-      boxShadow: '0 25px 50px rgba(0,0,0,0.2)',
+      padding: '2rem',
+      border: '2px solid rgba(255,255,255,0.4)',
+      boxShadow: '0 25px 50px rgba(0,0,0,0.15)',
       transition: 'all 0.3s ease',
-      transformStyle: 'preserve-3d'
+      height: '100%',
+      display: 'flex',
+      flexDirection: 'column',
+      minHeight: '400px'
     }} onMouseEnter={(e) => {
-      e.currentTarget.style.transform = 'translateY(-10px) scale(1.02) rotateY(5deg)';
-      e.currentTarget.style.boxShadow = '0 35px 70px rgba(0,0,0,0.3)';
+      e.currentTarget.style.transform = 'translateY(-10px) scale(1.02)';
+      e.currentTarget.style.boxShadow = '0 35px 70px rgba(0,0,0,0.25)';
+      e.currentTarget.style.border = '2px solid rgba(255,255,255,0.6)';
     }} onMouseLeave={(e) => {
-      e.currentTarget.style.transform = 'translateY(0) scale(1) rotateY(0deg)';
-      e.currentTarget.style.boxShadow = '0 25px 50px rgba(0,0,0,0.2)';
+      e.currentTarget.style.transform = 'translateY(0) scale(1)';
+      e.currentTarget.style.boxShadow = '0 25px 50px rgba(0,0,0,0.15)';
+      e.currentTarget.style.border = '2px solid rgba(255,255,255,0.4)';
     }}>
+      {/* Image Placeholder */}
       <div style={{
-        height: '12rem',
-        background: 'linear-gradient(135deg, rgba(255,107,107,0.2), rgba(78,205,196,0.2), rgba(69,183,209,0.2))',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
+        width: '100%',
+        height: '200px',
+        background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+        borderRadius: '15px',
+        marginBottom: '1.5rem',
         position: 'relative',
         overflow: 'hidden',
-        borderRadius: '25px 25px 0 0'
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center'
       }}>
         <div style={{
-          fontSize: '4rem',
-          fontWeight: 700,
           color: 'white',
-          transition: 'all 0.3s ease',
-          opacity: 0.9,
-          textShadow: '0 4px 8px rgba(0,0,0,0.3)',
-          fontFamily: 'var(--font-poppins)'
+          fontSize: '3rem',
+          fontWeight: 700,
+          textShadow: '0 4px 8px rgba(0,0,0,0.3)'
         }}>
           {project.title.charAt(0)}
         </div>
         
-        {/* Animated background pattern */}
-        <div style={{
-          position: 'absolute',
-          inset: 0,
-          background: 'radial-gradient(circle at 20% 80%, rgba(255,255,255,0.1) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(255,255,255,0.1) 0%, transparent 50%)',
-          opacity: 0.5,
-          animation: 'gradientShift 8s ease-in-out infinite'
-        }}></div>
-        
         {/* Floating elements */}
         <div style={{
           position: 'absolute',
-          top: '1rem',
-          right: '1rem',
-          width: '2rem',
-          height: '2rem',
-          background: 'linear-gradient(45deg, #ff6b6b, #4ecdc4)',
+          top: '10px',
+          right: '10px',
+          width: '30px',
+          height: '30px',
+          background: 'rgba(255,255,255,0.3)',
           borderRadius: '50%',
-          opacity: 0.6,
-          animation: 'float 6s ease-in-out infinite',
-          boxShadow: '0 4px 8px rgba(0,0,0,0.2)'
+          animation: 'float 3s ease-in-out infinite'
         }}></div>
         
         <div style={{
           position: 'absolute',
-          bottom: '1rem',
-          left: '1rem',
-          width: '1.5rem',
-          height: '1.5rem',
-          background: 'linear-gradient(45deg, #4ecdc4, #45b7d1)',
+          bottom: '10px',
+          left: '10px',
+          width: '20px',
+          height: '20px',
+          background: 'rgba(255,255,255,0.4)',
           borderRadius: '50%',
-          opacity: 0.6,
-          animation: 'float 8s ease-in-out infinite reverse',
-          boxShadow: '0 4px 8px rgba(0,0,0,0.2)'
+          animation: 'float 4s ease-in-out infinite reverse'
         }}></div>
         
-        {/* Glow effect */}
+        {/* Pulse glow effect */}
         <div style={{
           position: 'absolute',
           top: '50%',
           left: '50%',
           width: '100px',
           height: '100px',
-          background: 'radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%)',
-          transform: 'translate(-50%, -50%)',
+          background: 'radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%)',
           borderRadius: '50%',
-          animation: 'pulse 3s ease-in-out infinite'
+          transform: 'translate(-50%, -50%)',
+          animation: 'pulse 2s ease-in-out infinite'
         }}></div>
       </div>
-      
-      <div style={{ padding: '2rem' }}>
+
+      {/* Content */}
+      <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
         <h3 style={{
-          fontSize: '1.5rem',
-          fontWeight: 700,
-          marginBottom: '0.75rem',
-          color: 'white',
           fontFamily: 'var(--font-poppins)',
-          textShadow: '0 2px 4px rgba(0,0,0,0.3)'
+          fontWeight: 600,
+          fontSize: '1.5rem',
+          color: '#333',
+          marginBottom: '1rem',
+          lineHeight: 1.3
         }}>
           {project.title}
         </h3>
         
         <p style={{
-          color: 'rgba(255,255,255,0.9)',
+          color: '#555',
+          fontSize: '1rem',
+          lineHeight: 1.6,
           marginBottom: '1.5rem',
-          lineHeight: '1.75rem',
-          fontSize: '1rem'
+          flex: 1
         }}>
           {project.description}
         </p>
-        
+
+        {/* Tags */}
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '1.5rem' }}>
           {project.tags.map((tag, index) => (
-            <span 
-              key={index}
-              style={{
-                background: 'rgba(255,255,255,0.2)',
-                color: 'white',
-                padding: '0.5rem 1rem',
-                borderRadius: '20px',
-                fontSize: '0.75rem',
-                fontWeight: 500,
-                transition: 'all 0.3s ease',
-                border: '1px solid rgba(255,255,255,0.3)',
-                backdropFilter: 'blur(10px)',
-                cursor: 'pointer'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = 'rgba(255,255,255,0.3)';
-                e.currentTarget.style.transform = 'translateY(-3px) scale(1.05)';
-                e.currentTarget.style.boxShadow = '0 8px 16px rgba(0,0,0,0.2)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = 'rgba(255,255,255,0.2)';
-                e.currentTarget.style.transform = 'translateY(0) scale(1)';
-                e.currentTarget.style.boxShadow = 'none';
-              }}
-            >
+            <span key={index} style={{
+              background: 'rgba(255,255,255,0.5)',
+              color: '#333',
+              padding: '0.5rem 1rem',
+              borderRadius: '20px',
+              fontSize: '0.75rem',
+              fontWeight: 500,
+              transition: 'all 0.3s ease',
+              border: '1px solid rgba(255,255,255,0.6)',
+              backdropFilter: 'blur(10px)'
+            }} onMouseEnter={(e) => {
+              e.currentTarget.style.background = 'rgba(255,255,255,0.7)';
+              e.currentTarget.style.transform = 'translateY(-2px) scale(1.05)';
+            }} onMouseLeave={(e) => {
+              e.currentTarget.style.background = 'rgba(255,255,255,0.5)';
+              e.currentTarget.style.transform = 'translateY(0) scale(1)';
+            }}>
               {tag}
             </span>
           ))}
         </div>
-        
-        <Link 
-          href={project.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{
-            color: 'white',
-            fontWeight: 600,
-            display: 'inline-flex',
-            alignItems: 'center',
-            transition: 'all 0.3s ease',
-            padding: '0.75rem 1.5rem',
-            borderRadius: '25px',
-            background: 'linear-gradient(45deg, #ff6b6b, #4ecdc4)',
-            boxShadow: '0 8px 16px rgba(0,0,0,0.2)',
-            textDecoration: 'none',
-            border: 'none',
-            cursor: 'pointer'
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.transform = 'translateY(-3px) scale(1.05)';
-            e.currentTarget.style.boxShadow = '0 12px 24px rgba(0,0,0,0.3)';
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.transform = 'translateY(0) scale(1)';
-            e.currentTarget.style.boxShadow = '0 8px 16px rgba(0,0,0,0.2)';
-          }}
-        >
-          🚀 Projeyi Gör 
-          <svg style={{
-            width: '1rem',
-            height: '1rem',
-            marginLeft: '0.5rem',
-            transition: 'transform 0.3s ease'
-          }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-          </svg>
+
+        {/* Link */}
+        <Link href={project.link} target="_blank" rel="noopener noreferrer" style={{
+          display: 'inline-block',
+          background: 'linear-gradient(45deg, #667eea, #764ba2)',
+          color: 'white',
+          padding: '0.75rem 1.5rem',
+          borderRadius: '25px',
+          fontWeight: 600,
+          textDecoration: 'none',
+          textAlign: 'center',
+          transition: 'all 0.3s ease',
+          transform: 'translateY(0)',
+          border: 'none',
+          cursor: 'pointer',
+          marginTop: 'auto',
+          boxShadow: '0 8px 20px rgba(0,0,0,0.2)'
+        }} onMouseEnter={(e) => {
+          e.currentTarget.style.transform = 'translateY(-3px) scale(1.05)';
+          e.currentTarget.style.boxShadow = '0 12px 25px rgba(0,0,0,0.3)';
+        }} onMouseLeave={(e) => {
+          e.currentTarget.style.transform = 'translateY(0) scale(1)';
+          e.currentTarget.style.boxShadow = '0 8px 20px rgba(0,0,0,0.2)';
+        }}>
+          Projeyi Gör
         </Link>
       </div>
     </div>
