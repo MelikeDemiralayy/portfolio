@@ -171,13 +171,13 @@ export default function AboutSection({ skills }: AboutSectionProps) {
                      <div style={{ color: '#ef4444' }}>{'{'}</div>
                      <div style={{ marginLeft: '1rem' }}>
                        <div style={{ color: '#8b5cf6' }}>name:</div>
-                       <div style={{ color: '#f59e0b' }}>'Melike Demiralay',</div>
+                       <div style={{ color: '#f59e0b' }}>&apos;Melike Demiralay&apos;,</div>
                        <div style={{ color: '#8b5cf6' }}>role:</div>
-                       <div style={{ color: '#f59e0b' }}>'Frontend Developer',</div>
+                       <div style={{ color: '#f59e0b' }}>&apos;Frontend Developer&apos;,</div>
                        <div style={{ color: '#8b5cf6' }}>skills:</div>
                        <div style={{ color: '#f59e0b' }}>['React', 'Next.js', 'TypeScript'],</div>
                        <div style={{ color: '#8b5cf6' }}>passion:</div>
-                       <div style={{ color: '#f59e0b' }}>'Creating amazing UIs'</div>
+                       <div style={{ color: '#f59e0b' }}>&apos;Creating amazing UIs&apos;</div>
                      </div>
                      <div style={{ color: '#ef4444' }}>{'}'}</div>
                    </div>

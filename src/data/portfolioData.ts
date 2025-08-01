@@ -71,6 +71,13 @@ export const skills: string[] = [
 ];
 
 export const experiences: Experience[] = [
+  
+  {
+    title: "Frontend Developer",
+    company: "Vitalen Holding",
+    period: "2023 - Günümüz",
+    description: "Frontend Developer olarak modern web teknolojileri ile yaratıcı ve kullanıcı dostu dijital deneyimler yaratıyorum."
+  },
   {
     title: "Frontend Developer",
     company: "Freelance",
